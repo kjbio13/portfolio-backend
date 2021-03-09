@@ -7,7 +7,7 @@ import personalRoutes from './routes/personal.js';
 import hobbiesRoutes from './routes/hobbies.js';
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 8080;
 
 
 app.use(bodyParser.json());
