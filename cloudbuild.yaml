@@ -1,0 +1,10 @@
+steps:
+    # build the container image
+    - name: 'gcr.io/cloud-builders/docker'
+      args: [ 'build', '-t', 'gcr.io/${_PROJECT_ID}/portfolio-backend', '.' ]
+    # push the container image to gcr
+    - name: 'gcr.io/cloud-builders/docker'
+      args: [ 'push', 'gcr.io/${_PROJECT_ID}/portfolio-backend']
+      # Deploy container image to Cloud Run
+    - name: "gcr.io/cloud-builders/gcloud"
+      args: ['run', 'deploy', 'portfolio-backend', '--image', 'gcr.io/${_PROJECT_ID}/portfolio-backend', '--region', 'europe-west4', '--platform', 'managed', '--allow-unauthenticated']
