@@ -19,7 +19,7 @@ app.use(`/personal`, personalRoutes);
 app.use(`/hobbies`, hobbiesRoutes);
 
 app.get('/', (req, res) => {
-    res.send(`hello`);
+    res.send(`My Portfolio Backend`);
 })
 
 
